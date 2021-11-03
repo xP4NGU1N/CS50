@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function()
+            {
+                let incorrect = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrect.length; i++)
+                {
+                    incorrect[i].addEventListener('click', function()
+                    {
+                        for (let j = 0; j < incorrect.length; j++)
+                        {
+                            incorrect[j].style.backgroundColor = '#FFFFFF';
+                        }
+                        incorrect[i].style.backgroundColor = '#FE8686';
+                        document.querySelector('#reveal').innerHTML = 'Nope, guess again!';
+                        document.querySelector('.correct').style.backgroundColor = '#FFFFFF';
+                    });
+                }
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function()
+                {
+                    document.querySelector('#reveal').innerHTML = '<H3><u>Yes! This is where I live.</u></H3><br>Never been here before? Here is a picture:<br><img id = "annoying_chicken_image" src = "https://i.ebayimg.com/images/g/ljAAAOSwsVVe8BaO/s-l300.jpg" alt = "Annoying Chicken">';
+                    correct.style.backgroundColor = '#7FFF7F';
+                    let incorrect = document.querySelectorAll('.incorrect');
+                    for (let i = 0; i < incorrect.length; i++)
+                    {
+                        incorrect[i].style.backgroundColor = '#FFFFFF';
+                    }
+                });
+            });
+        </script>
+
+        <title>My Webpage</title>
+
+    </head>
+    <body>
+        <div class = "banner">
+            <H1>My House</H1>
+        </div>
+        <div class = "menu">
+            <a href = "index.html"><button><H4>Welcome</H4></button></a>
+            <a href = "selector.html"><button><H4>Ask Me!</H4></button></a>
+            <a href = "tags.html"><button><H4>My House</H4></button></a>
+            <a href = "bootstrap.html"><button><H4>Chicken</H4></button></a>
+        </div>
+        <div class = "section">
+            <H2><b>Where do I stay?</b></H2>
+            <H4>Here are some clues!</H4>
+            <ul>
+                <li>The place is in Nevada</li>
+                <li>Many people try to enter this place</li>
+                <li>There are many <i>UFO rumours</i> about this place</li>
+            </ul>
+            <button class = "incorrect">Universal Studios</button>
+            <button class = "correct">Area 51</button>
+            <button class = "incorrect">Jupiter</button>
+            <button class = "incorrect">The White House</button>
+            <hr>
+            <p id = "reveal"></p>
+        </div>
+    </body>
+</html>

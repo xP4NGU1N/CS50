@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+
+    <h3><b>SEARCH VIA STOCK TICKER</b></h3>
+    <hr>
+    <form action = "/quote" method = "post">
+            <input type = "text" name = "symbol" placeholder = "Stock Ticker (e.g ORPH)" autocomplete = "off" autofocus>
+            <input type = "submit" value = "Search">
+    </form>
+
+{% endblock %}

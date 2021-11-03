@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia - Australia</title>
+
+        <script>
+        // Read entire document first
+        document.addEventListener('DOMContentLoaded', function()
+        {
+            // Check MCQ by class
+            let incorrect = document.querySelectorAll('.incorrect');
+            for (let i = 0; i < incorrect.length; i++)
+            {
+                incorrect[i].addEventListener('click', function()
+                {
+                    for (let j = 0; j < incorrect.length; j++)
+                    {
+                        incorrect[j].style.backgroundColor = '#d9edff';
+                    }
+                    incorrect[i].style.backgroundColor = '#FE8686';
+                    document.querySelector('.correct').style.backgroundColor = '#d9edff';
+                    document.querySelector('#option_1').innerHTML = 'Incorrect, try again.';
+                });
+            };
+            let correct = document.querySelector('.correct');
+            correct.addEventListener('click', function()
+            {
+                correct.style.backgroundColor = '#7FFF7F';
+                let incorrect = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrect.length; i++)
+                {
+                    incorrect[i].style.backgroundColor = '#d9edff';
+                }
+                document.querySelector('#option_1').innerHTML = 'Correct!';
+            });
+
+            // Check MCQ by ID
+            let perth = document.querySelector('#Perth');
+            perth.addEventListener('click', function()
+            {
+                perth.style.backgroundColor = '#FE8686';
+                document.querySelector('#Adelaide').style.backgroundColor = '#d9edff';
+                document.querySelector('#option_2').innerHTML = 'You chose... poorly';
+            });
+            let adelaide = document.querySelector('#Adelaide');
+            adelaide.addEventListener('click', function()
+            {
+                adelaide.style.backgroundColor = '#7FFF7F';
+                document.querySelector('#Perth').style.backgroundColor = '#d9edff';
+                document.querySelector('#option_2').innerHTML = 'You chose... wisely';
+            });
+
+            // Check FRQ
+            document.querySelector('#check_1').addEventListener('click', function()
+            {
+                let input_1 = document.querySelector('#answer_1');
+                if (input_1.value == 'Scott Morrison' || input_1.value == 'Scott' || input_1.value == 'Morrison')
+                {
+                    input_1.style.backgroundColor = '#7FFF7F';
+                    document.querySelector('#result_1').innerHTML = 'Correct!<br>Note: clicking the box will delete input.';
+                }
+                else
+                {
+                    input_1.style.backgroundColor = '#FE8686';
+                    document.querySelector('#result_1').innerHTML = 'Incorrect, try again.<br>Note: clicking the box will delete input.';
+                }
+                input_1.addEventListener('click', function()
+                {
+                    input_1.value = '';
+                    input_1.style.backgroundColor = '#FFFFFF';
+                    document.querySelector('#result_1').innerHTML = 'Note: clicking the box will delete input.';
+                });
+            });
+
+            document.querySelector('#check_2').addEventListener('click', function()
+            {
+                let input_2 = document.querySelector('#answer_2');
+                if (input_2.value == 'Oceania')
+                {
+                    input_2.style.backgroundColor = '#7FFF7F';
+                    document.querySelector('#result_2').innerHTML = 'Correct!<br>Note: clicking the box will delete input.';
+                }
+                else
+                {
+                    input_2.style.backgroundColor = '#FE8686';
+                    document.querySelector('#result_2').innerHTML = 'Incorrect, try again.<br>Note: clicking the box will delete input.';
+                }
+                input_2.addEventListener('click', function()
+                {
+                    input_2.value = '';
+                    input_2.style.backgroundColor = '#FFFFFF';
+                    document.querySelector('#result_2').innerHTML = 'Note: clicking the box will delete input.';
+                });
+            });
+
+            // Reset the whole sheet
+            document.querySelector('#reset').addEventListener('click', function()
+            {
+                location = location;
+            });
+        })
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Quiz Time!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice</h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>What is the capital city of Australia?</h3>
+                <button class = "incorrect">Sydney</button>
+                <button class = "incorrect">Melbourne</button>
+                <button class = "correct">Canberra</button>
+                <button class = "incorrect">Queensland</button>
+                <p id = 'option_1'></p>
+
+                <h3>Where is Mount Lofty?</h3>
+                <button id = "Perth">Perth</button>
+                <button id = "Adelaide">Adelaide</button>
+                <p id = 'option_2'></p>
+
+            </div>
+
+            <div class ="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>Who is the Prime Minister of Australia?</h3>
+                <input id = "answer_1" type = "text"></input>
+                <button id = "check_1">Check Answer</button>
+                <p id = "result_1"></p>
+
+                <h3>Which continent is Australia in?</h3>
+                <input id = "answer_2" type = "text"></input>
+                <button id = "check_2">Check Answer</button>
+                <p id = "result_2"></p>
+
+            </div>
+
+            <div class = "section">
+                <p>End of Quiz</p>
+                <button id = "reset">Reset Quiz</button>
+                <hr>
+            </div>
+
+        </div>
+    </body>
+</html>
