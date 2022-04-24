@@ -1,5 +1,4 @@
 # CONNECT
-#### Video Demo: https://youtu.be/ad_C2AYQ4GQ
 #### Description:
 This website serves as a platform for people to connect with each other through similar hobbies. Users are able to join events organised by others or even created their own event. In my project, I referenced the videos and links provided by the CS50 team.
 
