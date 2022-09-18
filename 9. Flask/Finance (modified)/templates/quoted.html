@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <H2><b>Stock Summary</b></H2>
+    <hr>
+    <H3><b>{{ stock_name }}<b></H3>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th><H4><b><u>Property</u></b></h4></th>
+                <th><H4><b><u>Value</u></b></H4></th>
+            </tr>
+        </thead>
+            <tbody>
+                {% for stock in stocks %}
+                <tr>
+                    <td>{{ stock }}</td>
+                    <td>{{ stocks[stock] }}</td>
+                </tr>
+                {% endfor%}
+            </tbody>
+    </table>
+
+    <hr>
+
+    <form action = "/buy" method = "post">
+        <input name = "symbol" type = "hidden" value = "{{ stock_symbol }}">
+        <input name = "shares" type = "number" min = "1" placeholder = "Number of shares">
+        <input type = "submit" value = "Buy">
+    </form>
+    <br>
+    <a href = "/quote"><input type = "submit" value = "Search another stock"></a>
+
+{% endblock %}

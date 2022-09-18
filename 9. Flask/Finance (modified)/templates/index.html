@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Overview
+{% endblock %}
+
+{% block main %}
+
+    <H2 align = "left">{{ welcome_user }}</H2>
+    <H3><b>Overview<b></H3>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Ticker</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Buy/ Sell</th>
+                <th>Price</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+            <tbody>
+                {% for holding in holdings %}
+                <tr>
+                    <td>{{ holding.symbol }}</td>
+                    <td>{{ holding.name }}</td>
+                    <td>{{ holding.shares }}</td>
+                    <td>
+                        <form action = "/buy" method = "post">
+                            <input type = "hidden" name = "symbol" value = "{{ holding.symbol }}">
+                            <input type = "number" min = 1 name = "shares" placeholder = "Number of shares">
+                            <input type = "submit" value = "Buy">
+                        </form>
+                        <form action = "/sell" method = "post">
+                            <input type = "hidden" name = "symbol" value = "{{ holding.symbol }}">
+                            <input type = "number" min = 1 name = "shares" placeholder = "Number of shares">
+                            <input type = "submit" value = "Sell">
+                        </form>
+                    </td>
+                    <td>{{ holding.price | usd }}</td>
+                    <td>{{ holding.total | usd }}</td>
+                </tr>
+                {% endfor%}
+                <tr style = "border-top: solid">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>CASH</td>
+                    <td>{{ remaining_cash | usd }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>TOTAL VALUE</td>
+                    <td>{{ total_value | usd }}</td>
+                </tr>
+            </tbody>
+    </table>
+
+{% endblock %}

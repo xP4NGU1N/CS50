@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Top-Up
+{% endblock %}
+
+{% block main %}
+
+    <H3 align = "left">{{ user_username }}</H3>
+    <H4 align = "left">Cash in account: {{ user_cash | usd }}</H4>
+    <hr>
+    <form align = "justified" action = "/topup" method = "post">
+        <p>Top-up Amount:
+        <input type = "text" name = "top_up_amount" autocomplete = "off" autofocus>
+        <br><br>Confirm Amount:
+        <input type = "text" name = "confirmation" autocomplete = "off">
+        <hr>
+        <input type = "submit" value = "Top-Up Account">
+        </p>
+</form>
+
+{% endblock %}

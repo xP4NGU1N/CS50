@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+
+    <h3><b>SEARCH REDDIT TO <a href = "/quote">RESEARCH</a> BEFORE BUYING.</b><br>#fullsend$ORPH</h3><br>
+    <hr>
+    <form action = "/buy" method = "post">
+        <input type = "text" name = "symbol" autocomplete = "off" placeholder = "Stock Ticker (e.g ORPH)" autofocus>
+        <input type = "number" min = "1" name = "shares" autocomplete = "off" placeholder = "Number of shares">
+        <input type = "submit" value = "Buy">
+    </form>
+
+{% endblock %}

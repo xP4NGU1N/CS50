@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+
+    <H2><b>{{ username }}</b></H2>
+    <hr>
+    <H3><b>Transaction History<b></H3>
+    <hr>
+    <table>
+        <thead>
+            <tr>
+                <th>Ticker</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Action</th>
+                <th>Time of Transaction</th>
+            </tr>
+        </thead>
+            <tbody>
+                {% for holding in holdings %}
+                <tr>
+                    <td>{{ holding.symbol }}</td>
+                    <td>{{ holding.name }}</td>
+                    <td>{{ holding.shares | abs }}</td>
+                    <td>{{ holding.price | usd }}</td>
+                    <td>{{ holding.action }}</td>
+                    <td>{{ holding.time }}</td>
+                    <td></td>
+                </tr>
+                {% endfor%}
+                <tr>
+            </tbody>
+    </table>
+
+{% endblock %}

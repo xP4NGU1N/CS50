@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+
+How do you know?: sort 1 arranges the sorted variation of numbers in the quickest time. 
+
+sort2 uses: merge sort
+
+How do you know?: sort 2 arranges all 3 variations of numbers in similar times, and took a shorter time for each than sort 3.
+
+sort3 uses: selection sort
+
+How do you know?: sort 3 arranges all 3 variations of numbers in similar times, but took a longer time for each than sort 2. 

@@ -1,0 +1,52 @@
+.banner {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+.menu {
+    padding: 15px;
+    text-align: justify;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-color: #FF0000;
+}
+.section {
+    padding: 15px;
+    background-color: #D1FF8D;
+    color: #6E6E6E;
+}
+#chicken_breast_image {
+    border-style: solid;
+    border-color: #000000;
+}
+#chicken_wing_image{
+    border-style: solid;
+    border-color: #000000;
+}
+#annoying_chicken_image{
+    border-style: solid;
+    border-color: #000000;
+}
+input[type="text"] {
+    line-height: 1.2;
+    width: 300px;
+}
+.last_page {
+    padding: 15px;
+    background-color: #000000;
+    color: #fc0303;
+}
+
+H1 {
+    font-size: 48px;
+}
+H2 {
+    font-size: 38px;
+}
+H3 {
+    font-size: 28px;
+}
+H4 {
+    font-size: 18px;
+}

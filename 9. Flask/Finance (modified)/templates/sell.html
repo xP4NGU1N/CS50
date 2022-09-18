@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+
+    <h3><b>CHECK YOUR <a href = "/">HOLDINGS</a> BEFORE SELLING.</b></h3>
+    <hr>
+    <form action = "/sell" method = "post">
+        <input name = "symbol" type = "text" list = "stock_symbols" placeholder = "Stock Ticker (e.g FB)" autocomplete = "off">
+            <datalist id = "stock_symbols">
+                <option disabled selected value>Stock Ticker</option>
+                {% for stock in stocks %}
+                <option>{{ stock.symbol }}</option>
+                {% endfor%}
+            </datalist>
+
+        <input type = "number" min = "1" name = "shares" autocomplete = "off" placeholder = "Number of shares">
+        <input type = "submit" value = "Sell">
+    </form>
+
+{% endblock %}
